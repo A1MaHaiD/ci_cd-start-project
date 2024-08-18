@@ -16,20 +16,26 @@
 
 package com.handroid.spring_ci_cd;
 
-import javax.annotation.PreDestroy;
-
 import lombok.extern.slf4j.Slf4j;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
+import javax.annotation.PreDestroy;
 
 @Slf4j
 @SpringBootApplication
 public class MicroserviceTemplateApplication {
 
+    public static final String PASSWORD = "12345";
+
     public static void main(String[] args) {
         SpringApplication.run(MicroserviceTemplateApplication.class, args);
+//        encrypt();
+    }
+
+    private static void encrypt() {
+        System.out.println(new BCryptPasswordEncoder().encode(PASSWORD));
     }
 
     /**
@@ -44,3 +50,4 @@ public class MicroserviceTemplateApplication {
 }
 
 // 1:51:11
+// 2:06:45
